@@ -7,10 +7,31 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 public class ApplicationExceptionHandler {
 
-    @ExceptionHandler(ItemNotFoundException.class)
+    @ExceptionHandler(ClienteNotFoundException.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String itemNotFoundHandler(ItemNotFoundException ex) {
+    String clienteNotFoundException(ClienteNotFoundException ex) {
+        return ex.getMessage();
+    }
+
+    @ExceptionHandler(HotelNotFoundException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    String hotelNotFoundException(HotelNotFoundException ex) {
+        return ex.getMessage();
+    }
+
+    @ExceptionHandler(HabitacionNotFoundException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    String habitacionNotFoundException(HabitacionNotFoundException ex) {
+        return ex.getMessage();
+    }
+
+    @ExceptionHandler(ReservacionNotFoundException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    String reservacionNotFoundException(ReservacionNotFoundException ex) {
         return ex.getMessage();
     }
 }
